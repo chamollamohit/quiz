@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+.start-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.start-btn:hover {
+    background-color: #0056b3;
+}
+
+
+
+/* Result Container Styling */
+.result-container {
+    text-align: center;
+
+}
+
+.result-title {
+    font-size: 2rem;
+    color: #333;
+}
+
+.result-details {
+    margin: 20px 0;
+}
+
+.result-details p {
+    font-size: 1.2rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+#final-score {
+    font-size: 4rem;
+    font-weight: 600;
+    color: #007bff;
+    margin: 10px 0;
+}
+
+#score-percentage {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+#restart-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+#restart-btn:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+
+
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+#question {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Grid layout for answer buttons */
+.btn-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* A single column layout */
+    gap: 12px; /* Space between buttons */
+    margin-bottom: 20px;
+}
+
+/* General Button Styling for Options */
+.btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #f0f2f5;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #e0e2e5;
+    border-color: #007bff;
+}
+
+/* Button states - you will add these classes with JavaScript */
+.btn.correct {
+    background-color: #28a745; /* Green */
+    color: white;
+    border-color: #28a745;
+}
+
+.btn.incorrect {
+    background-color: #dc3545; /* Red */
+    color: white;
+    border-color: #dc3545;
+}
+
+/* Disable clicks after an answer is chosen */
+.btn.disabled {
+    pointer-events: none;
+}
+
+
+/* Next Button Styling */
+#next-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #28a745; /* Green */
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+#next-btn:hover {
+    background-color: #218838;
+}
+
+
+/* Base Skeleton Class with Shimmer Animation */
+.skeleton {
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    animation: shimmer 1.5s infinite linear;
+    background-image: linear-gradient(to right, #e0e0e0 0%, #f0f0f0 50%, #e0e0e0 100%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%;
+}
+
+/* Shimmer Animation Keyframes */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Skeleton Header */
+.skeleton-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.skeleton-text-sm {
+    width: 30%;
+    height: 20px;
+}
+
+/* Skeleton Question Title */
+.skeleton-question-title {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 30px;
+}
+
+/* Skeleton Answer Buttons */
+.skeleton-answers {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.skeleton-button {
+    width: 100%;
+    height: 55px; /* Matches the padding and font size of the real button */
+}
+
+/* Base Skeleton Class with Shimmer Animation */
+.skeleton {
+    background-color: #e0e0e0; /* The base color of the placeholder */
+    border-radius: 8px;
+    
+    /* The shimmer animation */
+    animation: shimmer 1.5s infinite linear;
+    background-image: linear-gradient(to right, #e0e0e0 0%, #f0f0f0 50%, #e0e0e0 100%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%;
+}
+
+/* Shimmer Animation Keyframes */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* --- Layout for Skeleton Elements --- */
+
+/* Styles the header placeholder */
+.skeleton-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+/* A small line of text, like the score or question counter */
+.skeleton-text-sm {
+    width: 30%;
+    height: 20px;
+}
+
+/* The main question title placeholder */
+.skeleton-question-title {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 30px;
+}
+
+/* Grid for the answer button placeholders */
+.skeleton-answers {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+/* A single answer button placeholder */
+.skeleton-button {
+    width: 100%;
+    height: 55px; /* Matches the size of a real answer button */
+}
